@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			/* Fonts */
+			@font-face {
+				font-family: "Verdana";
+				src: url("../public/fonts/verdana-bold.ttf");
+				font-weight: bold;
+			}
+
+			@font-face {
+				font-family: "Open Sans";
+				src: url("../public/fonts/OpenSans-Regular.ttf");
+			}
+
+			@font-face {
+				font-family: Roboto;
+				src: url("../public/fonts/Roboto-Regular.ttf");
+			}
+
+			@font-face {
+				font-family: Roboto;
+				src: url("../public/fonts/Roboto-Medium.ttf");
+				font-weight: 500;
+			}
+
+			/* General */
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				background-color: #dedede;
+				padding: 60px 72px;
+				font-family: "Open Sans";
+				margin: 0;
+			}
+
+			a {
+				font-family: Roboto;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 20px;
+				letter-spacing: 0.01em;
+				text-decoration: none;
+				color: #4a76b6;
+			}
+
+			/* Header */
+			.header {
+				text-align: center;
+			}
+
+			h1 {
+				color: #2d2d2d;
+				font-family: Verdana;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 30px;
+				letter-spacing: -0.02em;
+				margin-top: 30px;
+				margin-bottom: 40px;
+				text-align: center;
+			}
+
+			h3 {
+				font-size: 20px;
+				font-weight: 400;
+				line-height: 25px;
+				color: #2d2d2d;
+			}
+
+			/* Content */
+			section {
+				margin-bottom: 20px;
+				background-color: #ffffff;
+				box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+			}
+
+			.section-header {
+				display: flex;
+				padding: 20px;
+			}
+
+			.section-header img {
+				margin-right: 15px;
+			}
+
+			.section-header-links {
+				margin-left: auto;
+				color: #c0c0c0;
+				display: flex;
+				align-items: center;
+			}
+
+			.section-header-links a {
+				margin-right: 20px;
+				margin-left: 20px;
+			}
+
+			.section-header-links a:last-child {
+				margin-right: 0;
+			}
+
+			.section-header-links a:first-child {
+				margin-left: 0;
+			}
+
+			.section-header h3 {
+				margin-top: 0;
+				margin-bottom: 0;
+				margin-right: 15px;
+			}
+
+			.section-content {
+				overflow: auto;
+			}
+
+			/* Table */
+			table {
+				width: 100%;
+				border-spacing: 0;
+			}
+
+			table td,
+			table th {
+				font-family: Roboto;
+				font-size: 14px;
+				font-weight: 400;
+				padding: 13px 10px;
+				background-color: #fff;
+				line-height: 20px;
+				text-align: left;
+			}
+
+			table td:first-child,
+			table th:first-child {
+				padding-left: 20px;
+			}
+
+			table td:last-child,
+			table th:last-child {
+				padding-right: 20px;
+			}
+
+			table th {
+				font-size: 10px;
+				font-weight: 500;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: #8c8c8c;
+			}
+
+			table td {
+				border-top: 1px solid #f3f3f3;
+				letter-spacing: 0.01em;
+				color: #2d2d2d;
+			}
+
+			table tfoot td {
+				background-color: #f9f9f9;
+				font-weight: 500;
+			}
+
+			.content-width-cell {
+				white-space: nowrap;
+				width: 1px;
+			}
+
+			.align-right {
+				text-align: right;
+			}
+
+			.align-center {
+				text-align: center;
+			}
+
+			/* Target list */
+			table tr.is-collapsed td {
+				background-color: #f9f9f9;
+			}
+
+			.viewed-status {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				display: inline-block;
+				background-color: #dadada;
+			}
+
+			.line-cell {
+				border-right: 1px solid #dadada;
+				padding-right: 0;
+				padding-left: 12px;
+			}
+
+			.line-cell + th,
+			.line-cell + td {
+				padding-left: 22px;
+			}
+
+			.viewed-status.is-viewed {
+				background-color: #4ab675;
+			}
+
+			.acccount-link {
+				font-weight: 500;
+			}
+
+			.investor-targeting-list-table {
+				border-top: 1px solid #f3f3f3;
+			}
+
+			.counter {
+				display: inline-block;
+				padding: 1px 3px 0px;
+				width: 12px;
+				height: 13px;
+				background-color: #c0c0c0;
+				border-radius: 2px;
+				margin-left: 5px;
+				font-family: Roboto;
+				font-weight: 700;
+				font-size: 10px;
+				line-height: 12px;
+				color: #f9f9f9;
+				position: relative;
+				top: -1px;
+			}
+
+			.head-cell-with-icon {
+				display: inline-flex;
+				align-items: center;
+			}
+
+			.head-cell-icon {
+				margin-right: 5px;
+			}
+
+			.account-cell {
+				min-width: 200px;
+			}
+
+			.contacts-cell {
+				min-width: 150px;
+				width: 200px;
+			}
+
+			/* Message */
+			.message {
+				color: #8c8c8c;
+				font-family: Roboto;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 20px;
+				letter-spacing: 0.01em;
+				margin-top: 20px;
+				margin-bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Header -->
+		<div class="header">
+			<img src="./public/images/logo.png" alt="Dealroadshow" />
+			<h1>
+				Project Triangle NDR Presentation (JP) Investor Targeting
+			</h1>
+		</div>
+		<!-- Allocated investors -->
+		<section>
+			<div class="section-header">
+				<img src="./public/svg/allocate.svg" />
+				<h3>Targets: Previously Allocated Investors</h3>
+				<div class="section-header-links">
+					<a href="#">Learn More</a>
+				</div>
+			</div>
+			<div class="section-content">
+				<table>
+					<thead>
+						<tr>
+							<th>summary</th>
+							<th class="content-width-cell align-right">Total</th>
+							<th class="content-width-cell align-right">Viewed R/S</th>
+							<th class="content-width-cell align-right">% viewed</th>
+							<th class="content-width-cell align-right">Remaining</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Accounts allocated to this issuer in prior 12 months</td>
+							<td class="content-width-cell align-right">101</td>
+							<td class="content-width-cell align-right">59</td>
+							<td class="content-width-cell align-right">58%</td>
+							<td class="content-width-cell align-right">42</td>
+						</tr>
+						<tr>
+							<td>Accounts allocated to this issuer in prior 12-36 months</td>
+							<td class="content-width-cell align-right">93</td>
+							<td class="content-width-cell align-right">35</td>
+							<td class="content-width-cell align-right">38%</td>
+							<td class="content-width-cell align-right">58</td>
+						</tr>
+						<tr>
+							<td>Accounts allocated to comparable issuers (<12 months)</td>
+							<td class="content-width-cell align-right">121</td>
+							<td class="content-width-cell align-right">42</td>
+							<td class="content-width-cell align-right">35%</td>
+							<td class="content-width-cell align-right">79</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>Total Previously Allocated Target Accounts</td>
+							<td class="content-width-cell align-right">315</td>
+							<td class="content-width-cell align-right">136</td>
+							<td class="content-width-cell align-right">43%</td>
+							<td class="content-width-cell align-right">179</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</section>
+		<!-- Roadshow viewers -->
+		<section>
+			<div class="section-header">
+				<img src="./public/svg/roadshow.svg" />
+				<h3>Targets: Previous Deal Roadshow Viewers</h3>
+				<div class="section-header-links">
+					<a href="#">Learn More</a>
+				</div>
+			</div>
+			<div class="section-content">
+				<table>
+					<thead>
+						<tr>
+							<th>summary</th>
+							<th class="content-width-cell align-right">Total</th>
+							<th class="content-width-cell align-right">Viewed R/S</th>
+							<th class="content-width-cell align-right">% viewed</th>
+							<th class="content-width-cell align-right">Remaining</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Accounts that viewed this issuer in prior 12 months</td>
+							<td class="content-width-cell align-right">101</td>
+							<td class="content-width-cell align-right">59</td>
+							<td class="content-width-cell align-right">58%</td>
+							<td class="content-width-cell align-right">42</td>
+						</tr>
+						<tr>
+							<td>Accounts that viewed this issuer in prior 12-36 months</td>
+							<td class="content-width-cell align-right">93</td>
+							<td class="content-width-cell align-right">35</td>
+							<td class="content-width-cell align-right">38%</td>
+							<td class="content-width-cell align-right">58</td>
+						</tr>
+						<tr>
+							<td>Accounts that viewed comparable issuers (<12 months)</td>
+							<td class="content-width-cell align-right">121</td>
+							<td class="content-width-cell align-right">42</td>
+							<td class="content-width-cell align-right">35%</td>
+							<td class="content-width-cell align-right">79</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>Total Previous DRS Viewer Target Accounts</td>
+							<td class="content-width-cell align-right">315</td>
+							<td class="content-width-cell align-right">136</td>
+							<td class="content-width-cell align-right">43%</td>
+							<td class="content-width-cell align-right">179</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</section>
+		<!-- Investor targeting list -->
+		<section>
+			<div class="section-header">
+				<h3>Investor Target List (143)</h3>
+				<div class="section-header-links">
+					<a href="#">Learn More</a>
+					|
+					<a href="#">View in Deal Manager</a>
+				</div>
+			</div>
+			<div class="section-content">
+				<table class="investor-targeting-list-table">
+					<thead>
+						<tr>
+							<th class="content-width-cell">#</th>
+							<th class="content-width-cell"></th>
+							<th class="account-cell">account</th>
+							<th class="contacts-cell">Recent 3 Contacts</th>
+							<th class="content-width-cell align-center"></th>
+							<th class="content-width-cell">CCY</th>
+							<th class="content-width-cell align-right">
+								<span class="head-cell-with-icon">
+									<img class="head-cell-icon" src="./public/svg/allocate-small.svg" alt="" />
+									0-12
+								</span>
+							</th>
+							<th class="content-width-cell align-right">
+								<span class="head-cell-with-icon">
+									<img class="head-cell-icon" src="./public/svg/allocate-small.svg" alt="" />
+									12-36
+								</span>
+							</th>
+							<th class="content-width-cell align-right">
+								<span class="head-cell-with-icon">
+									<img class="head-cell-icon" src="./public/svg/allocate-small.svg" alt="" />
+									Comps
+								</span>
+							</th>
+							<th class="line-cell content-width-cell" />
+							<th class="content-width-cell align-right">
+								<span class="head-cell-with-icon">
+									<img class="head-cell-icon" src="./public/svg/roadshow-small.svg" alt="" />
+									0-12
+								</span>
+							</th>
+							<th class="content-width-cell align-right">
+								<span class="head-cell-with-icon">
+									<img class="head-cell-icon" src="./public/svg/roadshow-small.svg" alt="" />
+									12-36
+								</span>
+							</th>
+							<th class="content-width-cell align-right">
+								<span class="head-cell-with-icon">
+									<img class="head-cell-icon" src="./public/svg/roadshow-small.svg" alt="" />
+									Comps
+								</span>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="is-collapsed">
+							<td class="content-width-cell">1</td>
+							<td class="content-width-cell">
+								<span class="viewed-status is-viewed" />
+							</td>
+							<td class="account-cell">
+								<a href="#" class="acccount-link">Dice Molecules LTD.</a>
+							</td>
+							<td class="contacts-cell">
+								<a href="mailto:jordan@drs.com">Jordan A.</a>, <a href="mailto:ron@drs.com">Ron L.</a>,
+								<a href="mailto:leo@drs.com">Leo E.</a>
+							</td>
+							<td class="content-width-cell align-center">Multi</td>
+							<td class="content-width-cell">AUD</td>
+							<td class="content-width-cell align-right">
+								20,456
+								<span class="counter">3</span>
+							</td>
+							<td class="content-width-cell align-right">-</td>
+							<td class="content-width-cell align-right">-</td>
+							<td class="line-cell content-width-cell" />
+							<td class="content-width-cell align-right">15:10:22</td>
+							<td class="content-width-cell align-right">2:44:17</td>
+							<td class="content-width-cell align-right">5:14:35</td>
+						</tr>
+						<tr class="is-collapsed">
+							<td class="content-width-cell"></td>
+							<td class="content-width-cell"></td>
+							<td class="account-cell"></td>
+							<td class="contacts-cell"></td>
+							<td class="content-width-cell align-center">Multi</td>
+							<td class="content-width-cell">EUR</td>
+							<td class="content-width-cell align-right">-</td>
+							<td class="content-width-cell align-right">
+								10,100
+								<span class="counter">3</span>
+							</td>
+							<td class="content-width-cell align-right">-</td>
+							<td class="line-cell content-width-cell" />
+							<td class="content-width-cell align-right">15:10:22</td>
+							<td class="content-width-cell align-right">2:44:17</td>
+							<td class="content-width-cell align-right">5:14:35</td>
+						</tr>
+						<tr>
+							<td class="content-width-cell">2</td>
+							<td class="content-width-cell">
+								<span class="viewed-status" />
+							</td>
+							<td class="account-cell">
+								<a href="#" class="acccount-link">Stillwater Group LTD.</a>
+							</td>
+							<td class="contacts-cell">
+								<a href="mailto:jordan@drs.com">Jordan A.</a>, <a href="mailto:ron@drs.com">Ron L.</a>,
+								<a href="mailto:leo@drs.com">Leo E.</a>
+							</td>
+							<td class="content-width-cell align-center">-</td>
+							<td class="content-width-cell">AUD</td>
+							<td class="content-width-cell align-right">
+								24,100
+								<span class="counter">3</span>
+							</td>
+							<td class="content-width-cell align-right">
+								24,735
+								<span class="counter">3</span>
+							</td>
+							<td class="content-width-cell align-right">
+								88,333
+								<span class="counter">3</span>
+							</td>
+							<td class="line-cell content-width-cell" />
+							<td class="content-width-cell align-right">3:57:11</td>
+							<td class="content-width-cell align-right">15:10:22</td>
+							<td class="content-width-cell align-right">16:51:56</td>
+						</tr>
+						<tr>
+							<td class="content-width-cell">3</td>
+							<td class="content-width-cell">
+								<span class="viewed-status is-viewed" />
+							</td>
+							<td class="account-cell">
+								<a href="#" class="acccount-link">Live Oak Crestview Climate Acquisition </a>
+							</td>
+							<td class="contacts-cell">
+								<a href="mailto:jordan@drs.com">Mike E.</a>, <a href="mailto:ron@drs.com">John A.</a>,
+								<a href="mailto:leo@drs.com">Nick L.</a>
+							</td>
+							<td class="content-width-cell align-center">-</td>
+							<td class="content-width-cell">USD</td>
+							<td class="content-width-cell align-right">
+								88,333
+								<span class="counter">3</span>
+							</td>
+							<td class="content-width-cell align-right">
+								10,556
+								<span class="counter">3</span>
+							</td>
+							<td class="content-width-cell align-right">
+								24,735
+								<span class="counter">3</span>
+							</td>
+							<td class="line-cell content-width-cell" />
+							<td class="content-width-cell align-right">15:10:22</td>
+							<td class="content-width-cell align-right">2:44:17</td>
+							<td class="content-width-cell align-right">26:51:10</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<!-- Description -->
+		<p class="message">
+			1 Investor Targeting is a powerful module that will continuously monitor this Deal Roadshow’s engagement to help you benchmark and prioritize investor outreach based solely on analytics within your FINSIGHT Deal Manager account. This data derives from information in your Deal Manager account only. Results may differ between Deal Managers based on their analytics access.
+		</p>
+	</body>
+</html>
