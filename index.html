@@ -79,24 +79,37 @@
 			}
 
 			.section-header {
-				display: flex;
 				padding: 20px;
+				position: relative;
+			}
+
+			.section-header--with-icon {
+				padding-left: 51px;
 			}
 
 			.section-header img {
-				margin-right: 15px;
+				position: absolute;
+				left: 20px;
+				top: 50%;
+				transform: translateY(-50%);
 			}
 
 			.section-header-links {
-				margin-left: auto;
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				transform: translateY(-50%);
 				color: #c0c0c0;
-				display: flex;
-				align-items: center;
 			}
 
 			.section-header-links a {
-				margin-right: 20px;
-				margin-left: 20px;
+				margin-right: 12px;
+				margin-left: 12px;
+			}
+
+			.section-header h3 {
+				margin-top: 0;
+				margin-bottom: 0;
 			}
 
 			.section-header-links a:last-child {
@@ -105,12 +118,6 @@
 
 			.section-header-links a:first-child {
 				margin-left: 0;
-			}
-
-			.section-header h3 {
-				margin-top: 0;
-				margin-bottom: 0;
-				margin-right: 15px;
 			}
 
 			.section-content {
@@ -230,12 +237,16 @@
 			}
 
 			.head-cell-with-icon {
-				display: inline-flex;
+				position: relative;
+				padding-left: 13px;
 				align-items: center;
 			}
 
 			.head-cell-icon {
-				margin-right: 5px;
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
 			}
 
 			.account-cell {
@@ -270,7 +281,7 @@
 		</div>
 		<!-- Allocated investors -->
 		<section>
-			<div class="section-header">
+			<div class="section-header section-header--with-icon">
 				<img src="./public/svg/allocate.svg" />
 				<h3>Targets: Previously Allocated Investors</h3>
 				<div class="section-header-links">
@@ -325,7 +336,7 @@
 		</section>
 		<!-- Roadshow viewers -->
 		<section>
-			<div class="section-header">
+			<div class="section-header section-header--with-icon">
 				<img src="./public/svg/roadshow.svg" />
 				<h3>Targets: Previous Deal Roadshow Viewers</h3>
 				<div class="section-header-links">
