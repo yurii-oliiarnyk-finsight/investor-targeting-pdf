@@ -78,25 +78,18 @@
 				box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 			}
 
-			.section-header {
+			.header-table {
 				padding: 20px;
-				position: relative;
+				width: 100%;
+				vertical-align: bottom;
 			}
 
-			.section-header--with-icon {
-				padding-left: 51px;
-			}
-
-			.section-header img {
-				float: left;
-				margin-right: 15px;
-				margin-top: 5px;
+			.header-table td {
+				vertical-align: bottom;
 			}
 
 			.section-header-links {
-				float: right;
 				color: #c0c0c0;
-				margin-top: 2px;
 			}
 
 			.section-header-links a {
@@ -104,16 +97,14 @@
 				margin-left: 12px;
 			}
 
-			.section-header h3 {
+			.header-table h3 {
 				margin-top: 0;
 				margin-bottom: 0;
-				float: left;
 			}
 
-			.section-header::after {
-				content: "";
-				display: inline-block;
-				clear: both;
+			.header-table .icon {
+				width: 16px;
+				padding-right: 10px;
 			}
 
 			.section-header-links a:last-child {
@@ -129,13 +120,13 @@
 			}
 
 			/* Table */
-			table {
+			.data-table {
 				width: 100%;
 				border-spacing: 0;
 			}
 
-			table td,
-			table th {
+			.data-table td,
+			.data-table th {
 				font-family: Roboto;
 				font-size: 14px;
 				font-weight: 400;
@@ -145,17 +136,17 @@
 				text-align: left;
 			}
 
-			table td:first-child,
-			table th:first-child {
+			.data-table td:first-child,
+			.data-table th:first-child {
 				padding-left: 20px;
 			}
 
-			table td:last-child,
-			table th:last-child {
+			.data-table td:last-child,
+			.data-table th:last-child {
 				padding-right: 20px;
 			}
 
-			table th {
+			.data-table th {
 				font-size: 10px;
 				font-weight: 500;
 				letter-spacing: 0.1em;
@@ -163,13 +154,13 @@
 				color: #8c8c8c;
 			}
 
-			table td {
+			.data-table td {
 				border-top: 1px solid #f3f3f3;
 				letter-spacing: 0.01em;
 				color: #2d2d2d;
 			}
 
-			table tfoot td {
+			.data-table tfoot td {
 				background-color: #f9f9f9;
 				font-weight: 500;
 			}
@@ -188,7 +179,7 @@
 			}
 
 			/* Target list */
-			table tr.is-collapsed td {
+			.data-table tr.is-collapsed td {
 				background-color: #f9f9f9;
 			}
 
@@ -285,15 +276,21 @@
 		</div>
 		<!-- Allocated investors -->
 		<section>
-			<div class="section-header">
-				<img src="./public/svg/allocate.svg" />
-				<h3>Targets: Previously Allocated Investors</h3>
-				<div class="section-header-links">
-					<a href="#">Learn More</a>
-				</div>
-			</div>
+			<table class="header-table">
+				<tbody>
+					<tr>
+						<td class="icon"><img src="./public/svg/allocate.svg" /></td>
+						<td><h3>Targets: Previously Allocated Investors</h3></td>
+						<td class="align-right">
+							<span class="section-header-links">
+								<a href="#">Learn More</a>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			<div class="section-content">
-				<table>
+				<table class="data-table">
 					<thead>
 						<tr>
 							<th>summary</th>
@@ -340,15 +337,21 @@
 		</section>
 		<!-- Roadshow viewers -->
 		<section>
-			<div class="section-header">
-				<img src="./public/svg/roadshow.svg" />
-				<h3>Targets: Previous Deal Roadshow Viewers</h3>
-				<div class="section-header-links">
-					<a href="#">Learn More</a>
-				</div>
-			</div>
+			<table class="header-table">
+				<tbody>
+					<tr>
+						<td class="icon"><img src="./public/svg/roadshow.svg" /></td>
+						<td><h3>Targets: Previous Deal Roadshow Viewers</h3></td>
+						<td class="align-right">
+							<span class="section-header-links">
+								<a href="#">Learn More</a>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			<div class="section-content">
-				<table>
+				<table class="data-table">
 					<thead>
 						<tr>
 							<th>summary</th>
@@ -395,16 +398,22 @@
 		</section>
 		<!-- Investor targeting list -->
 		<section>
-			<div class="section-header">
-				<h3>Investor Target List (143)</h3>
-				<div class="section-header-links">
-					<a href="#">Learn More</a>
-					|
-					<a href="#">View in Deal Manager</a>
-				</div>
-			</div>
+			<table class="header-table">
+				<tbody>
+					<tr>
+						<td><h3>Investor Target List (143)</h3></td>
+						<td class="align-right">
+							<span class="section-header-links">
+								<a href="#">Learn More</a>
+								|
+								<a href="#">View in Deal Manager</a>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			<div class="section-content">
-				<table class="investor-targeting-list-table">
+				<table class="data-table investor-targeting-list-table">
 					<thead>
 						<tr>
 							<th class="content-width-cell">#</th>
