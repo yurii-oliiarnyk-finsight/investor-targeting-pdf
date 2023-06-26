@@ -78,33 +78,32 @@
 				box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 			}
 
-			.header-table {
-				padding: 20px;
-				width: 100%;
-				vertical-align: bottom;
+			.section-content {
+				overflow: auto;
 			}
 
-			.header-table td {
-				vertical-align: bottom;
+			/* Section header */
+			.section-header {
+				display: flex;
+				padding: 20px;
+				gap: 10px;
+				flex-wrap: wrap;
+			}
+
+			.section-header img {
+				margin-right: 15px;
 			}
 
 			.section-header-links {
+				margin-left: auto;
 				color: #c0c0c0;
+				display: flex;
+				align-items: center;
 			}
 
 			.section-header-links a {
-				margin-right: 12px;
-				margin-left: 12px;
-			}
-
-			.header-table h3 {
-				margin-top: 0;
-				margin-bottom: 0;
-			}
-
-			.header-table .icon {
-				width: 16px;
-				padding-right: 10px;
+				margin-right: 20px;
+				margin-left: 20px;
 			}
 
 			.section-header-links a:last-child {
@@ -115,8 +114,29 @@
 				margin-left: 0;
 			}
 
-			.section-content {
-				overflow: auto;
+			.section-header h3 {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+
+			.tags {
+				order: 1;
+				width: 100%;
+			}
+
+			.tags span {
+				color: #616161;
+				font-size: 12px;
+				font-family: Roboto;
+				letter-spacing: 0.24px;
+				border-radius: 3px;
+				background: #f9f9f9;
+				margin-right: 5px;
+				padding: 3.5px 8px;
+			}
+
+			.tags span:last-child {
+				margin-right: 0;
 			}
 
 			/* Table */
@@ -271,19 +291,13 @@
 		</div>
 		<!-- Allocated investors -->
 		<section>
-			<table class="header-table">
-				<tbody>
-					<tr>
-						<td class="icon"><img src="./public/svg/allocate.svg" width="16" height="16" /></td>
-						<td><h3>Targets: Previously Allocated Investors</h3></td>
-						<td class="align-right">
-							<span class="section-header-links">
-								<a href="#">Learn More</a>
-							</span>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="section-header">
+				<img src="./public/svg/allocate.svg" alt="" />
+				<h3>Targets: Previously Allocated Investors</h3>
+				<div class="section-header-links">
+					<a href="#">Learn More</a>
+				</div>
+			</div>
 			<div class="section-content">
 				<table class="data-table">
 					<thead>
@@ -332,19 +346,13 @@
 		</section>
 		<!-- Roadshow viewers -->
 		<section>
-			<table class="header-table">
-				<tbody>
-					<tr>
-						<td class="icon"><img src="./public/svg/roadshow.svg" width="16" height="16" /></td>
-						<td><h3>Targets: Previous Deal Roadshow Viewers</h3></td>
-						<td class="align-right">
-							<span class="section-header-links">
-								<a href="#">Learn More</a>
-							</span>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="section-header">
+				<img src="./public/svg/roadshow.svg" alt="" />
+				<h3>Targets: Previous Deal Roadshow Viewers</h3>
+				<div class="section-header-links">
+					<a href="#">Learn More</a>
+				</div>
+			</div>
 			<div class="section-content">
 				<table class="data-table">
 					<thead>
@@ -393,20 +401,20 @@
 		</section>
 		<!-- Investor targeting list -->
 		<section>
-			<table class="header-table">
-				<tbody>
-					<tr>
-						<td><h3>Investor Target List (143)</h3></td>
-						<td class="align-right">
-							<span class="section-header-links">
-								<a href="#">Learn More</a>
-								|
-								<a href="#">View in Deal Manager</a>
-							</span>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="section-header">
+				<h3>Investor Target List (143)</h3>
+				<div class="tags">
+					<span>Comparable Parents: Subsector/Subindustry</span>
+					<span>Allocated: In prior 12 months</span>
+					<span>4 Accounts types</span>
+					<span>2 Accounts & Contacts</span>
+				</div>
+				<div class="section-header-links">
+					<a href="#">Learn More</a>
+					|
+					<a href="#">View in Deal Manager</a>
+				</div>
+			</div>
 			<div class="section-content">
 				<table class="data-table investor-targeting-list-table">
 					<thead>
